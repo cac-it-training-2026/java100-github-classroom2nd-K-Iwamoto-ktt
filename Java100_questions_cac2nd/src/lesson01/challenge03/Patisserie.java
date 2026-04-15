@@ -22,7 +22,13 @@
 package lesson01.challenge03;
 
 public class Patisserie {
+
 	public static void main(String[] args) {
+
+		System.out.println("たいへんお待たせしました。");
+		System.out.println("【ポエール・ネルメ】");
+		System.out.println("ただいまより開店です！！");
+
 		int citron = 30;
 		int chocolate = 30;
 		int pistach = 30;
