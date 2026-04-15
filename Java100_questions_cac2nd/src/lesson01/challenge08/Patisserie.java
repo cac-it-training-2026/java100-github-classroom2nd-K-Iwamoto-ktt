@@ -107,5 +107,6 @@ public class Patisserie {
 		System.out.println("シトロン      \\" + price_sitron + "・・・ " + ratio_sitron + "%");
 		System.out.println("ショコラ      \\" + price_chocolate + "・・・ " + ratio_chocolate + "%");
 		System.out.println("ピスターシュ  \\" + price_pistach + "・・・ " + ratio_pistach + "%");
+		//テスト
 	}
 }
