@@ -86,7 +86,9 @@ public class Detective {
 		String numStr = br.readLine();
 		int num = Integer.parseInt(numStr);
 
-		//ここに記述する
+		String answer = (num == 1) ? "不正解です。" : "正解です。";
+		System.out.println("\n探偵 : ");
+		System.out.println(answer);
 
 	}
 
