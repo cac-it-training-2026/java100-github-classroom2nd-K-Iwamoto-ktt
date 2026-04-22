@@ -151,5 +151,4 @@ public class RobotMaker {
 
 		System.out.println("\nきれいになりました。");
 	}
-
 }

@@ -98,5 +98,4 @@ public class RobotMaker {
 		System.out.println("G博士：");
 		System.out.println("じゃろ。死んだ婆さんの秘伝のレシピを入れておいたからの。\n");
 	}
-
 }

@@ -144,5 +144,4 @@ public class RobotMaker {
 		Robot robot = new Robot();
 		System.out.println(robot.makeEggDishes(flourNum, sugarNum, eggNum, butterNum));
 	}
-
 }

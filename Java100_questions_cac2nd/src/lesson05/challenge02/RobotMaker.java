@@ -84,5 +84,4 @@ public class RobotMaker {
 		System.out.println("OKじゃ。\n");
 
 	}
-
 }

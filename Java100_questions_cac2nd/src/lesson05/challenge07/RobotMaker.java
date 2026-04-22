@@ -78,5 +78,4 @@ public class RobotMaker {
 		System.out.println("Rさん：");
 		System.out.println("なんか雑音が気になりますが、一応出来てますね。\n");
 	}
-
 }
