@@ -51,74 +51,105 @@ package lesson05.challenge09;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 
-//ここに問題8で作成したクラス(変更なし)を記述してください。
+class Robot {
+	int energy;
+	int water;
+	String name;
 
-//ここに次の条件を満たすクラスを作成してください。
-//クラス名：ClearRobot
-//メソッド名：clearTable(引数int[] ingredients
-//戻り値void、渡された配列を0でクリアする)
+	void setWater(int water) {
+		this.water = water;
+	}
+
+	void randomWater() {
+		this.water = (int) (Math.random() * 10) % 9 + 1;
+	}
+
+	void makeOmelet(int eggNum, int butterNum) {
+		int egg = eggNum / 2;
+		int butter = butterNum / 5;
+		int omelet_num = (egg <= butter) ? egg : butter;
+		System.out.println("\n" + omelet_num + "人分のオムレツを作成しました。\n");
+	}
+
+	public int getWater() {
+		return water;
+	}
+
+	String makeEggDishes(int flourNum, int sugarNum, int eggNum, int butterNum) {
+		if ((170 <= flourNum) && (50 <= sugarNum) && (1 <= eggNum) && (80 <= butterNum)) {
+			return "\nクッキーが出来ました。";
+		} else if ((2 <= eggNum) && (5 <= butterNum)) {
+			return "\nオムレツが出来ました。";
+		} else if (1 <= eggNum) {
+			return "\nゆで卵が出来ました。";
+		} else {
+			return "\n何も作れません。";
+		}
+	}
+}
+
+class ClearRobot {
+
+	void clearTable(int[] ingradients) {
+		for (int i = 0; i < ingradients.length; i++) {
+			ingradients[i] = 0;
+		}
+	}
+}
 
 public class RobotMaker {
 
-    public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException {
 
-        System.out.println("Rさん：");
-        System.out.println("あとかたづけをしてくれるロボットも欲しいところですね。\n");
-        System.out.println("G博士：");
-        System.out.println("そうれはもう作ってあるぞ。\n");
-        System.out.println("Rさん：");
-        System.out.println("えっ！どうやって使うんですか？\n");
-        System.out.println("G博士：");
-        System.out.println("今まで使ってきた材料をまとめて、料理と一緒に渡すときれいにしてくれるんじゃ。\n");
-        System.out.println("Rさん：");
-        System.out.println("早速やってみます。\n");
+		System.out.println("Rさん：");
+		System.out.println("あとかたづけをしてくれるロボットも欲しいところですね。\n");
+		System.out.println("G博士：");
+		System.out.println("そうれはもう作ってあるぞ。\n");
+		System.out.println("Rさん：");
+		System.out.println("えっ！どうやって使うんですか？\n");
+		System.out.println("G博士：");
+		System.out.println("今まで使ってきた材料をまとめて、料理と一緒に渡すときれいにしてくれるんじゃ。\n");
+		System.out.println("Rさん：");
+		System.out.println("早速やってみます。\n");
 
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        System.out.print("小麦粉の量を入力してください（グラム）＞");
-        String flourNumStr = br.readLine();
-        int flourNum = Integer.parseInt(flourNumStr);
+		System.out.print("小麦粉の量を入力してください（グラム）＞");
+		String flourNumStr = br.readLine();
+		int flourNum = Integer.parseInt(flourNumStr);
 
-        System.out.print("\n砂糖の量を入力してください（グラム）＞");
-        String sugarNumStr = br.readLine();
-        int sugarNum = Integer.parseInt(sugarNumStr);
+		System.out.print("\n砂糖の量を入力してください（グラム）＞");
+		String sugarNumStr = br.readLine();
+		int sugarNum = Integer.parseInt(sugarNumStr);
 
-        System.out.print("\n卵の個数を入力してください＞");
-        String eggNumStr = br.readLine();
-        int eggNum = Integer.parseInt(eggNumStr);
+		System.out.print("\n卵の個数を入力してください＞");
+		String eggNumStr = br.readLine();
+		int eggNum = Integer.parseInt(eggNumStr);
 
-        System.out.print("\nバターの量を入力してください（グラム）＞");
-        String butterNumStr = br.readLine();
-        int butterNum = Integer.parseInt(butterNumStr);
+		System.out.print("\nバターの量を入力してください（グラム）＞");
+		String butterNumStr = br.readLine();
+		int butterNum = Integer.parseInt(butterNumStr);
 
+		Robot robot = new Robot();
+		System.out.println(robot.makeEggDishes(flourNum, sugarNum, eggNum, butterNum));
 
-        //ここでRobotクラスのインスタンスを作り、
-        //（インスタンス名はrobot）
-        //makeEggDishesを実行する。
-        //標準出力でメニューを表示する。
+		System.out.println("\nあとかたづけをします。\n");
+		int[] ingredients = new int[4];
+		ingredients[0] = flourNum;
+		ingredients[1] = sugarNum;
+		ingredients[2] = eggNum;
+		ingredients[3] = butterNum;
 
+		ClearRobot clearRobot = new ClearRobot();
+		clearRobot.clearTable(ingredients);
 
-        System.out.println("\nあとかたづけをします。\n");
-        int[] ingredients = new int[4];
-        ingredients[0] = flourNum;
-        ingredients[1] = sugarNum;
-        ingredients[2] = eggNum;
-        ingredients[3] = butterNum;
+		System.out.println("小麦粉  ：" + ingredients[0] + "g");
+		System.out.println("砂糖    ：" + ingredients[1] + "g");
+		System.out.println("卵      ：" + ingredients[2] + "個");
+		System.out.println("バター  ：" + ingredients[3] + "g");
 
-
-        //ここでClearRobotクラスのインスタンスを作り、
-        //（インスタンス名はclearRobot）
-        //clearTableを実行する。
-
-
-        System.out.println("小麦粉  ：" + ingredients[0] + "g");
-        System.out.println("砂糖    ：" + ingredients[1] + "g");
-        System.out.println("卵      ：" + ingredients[2] + "個");
-        System.out.println("バター  ：" + ingredients[3] + "g");
-
-        System.out.println("\nきれいになりました。");
-    }
+		System.out.println("\nきれいになりました。");
+	}
 
 }
