@@ -21,33 +21,99 @@
 
 package lesson07.challenge13;
 
+interface ICelebrity {
+	abstract void learn();
+}
 
-//ここにICelebrityインターフェースを記述
+abstract class Samurai {
 
+	protected String name;
 
-//ここにSamuraiクラスを記述
+	void fight() {
+		System.out.println("戦うよ～。");
+	}
 
+	abstract void work();
 
-//ここにRetainerクラスを記述
+}
 
+class Retainer extends Samurai implements ICelebrity {
 
-//ここにRoninクラスを記述
+	protected String domain;
 
+	public Retainer() {
+
+	}
+
+	public Retainer(String name, String domain) {
+		this.name = name;
+		this.domain = domain;
+	}
+
+	void getPaid() {
+		System.out.println("給料をもらうよ～。");
+	}
+
+	void work() {
+		System.out.println("年貢を取り立てるよ～。");
+	}
+
+	public String toString() {
+		return "拙者は" + this.domain + "藩士、" + this.name + "ともうす。";
+	}
+
+	public boolean equals(Retainer retainer) {
+		if (this.domain.equals(retainer.domain)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public void learn() {
+		System.out.println("茶道を嗜むよ～。");
+	}
+}
+
+class Ronin extends Samurai implements ICelebrity {
+
+	public Ronin() {
+
+	}
+
+	public Ronin(String name) {
+		this.name = name;
+	}
+
+	void covered() {
+		System.out.println("傘張りするよ～。");
+	}
+
+	void work() {
+		System.out.println("傘張るよ～。");
+	}
+
+	public String toString() {
+		return "拙者は武州○△□村の浪人、" + name + "ともうす。";
+	}
+
+	public void learn() {
+		System.out.println("塾を開くよ～。");
+	}
+}
 
 public class CastleTown {
 
-    public static void main(String[] args) {
-        System.out.println("藩士1：");
+	public static void main(String[] args) {
+		System.out.println("藩士1：");
 
+		Retainer retainer1 = new Retainer();
+		retainer1.learn();
 
-        //ここに適切な処理を記述
+		System.out.println("\n浪人1：");
 
+		Ronin ronin1 = new Ronin();
+		ronin1.learn();
 
-        System.out.println("\n浪人1：");
-
-
-        //ここに適切な処理を記述
-
-
-    }
+	}
 }
