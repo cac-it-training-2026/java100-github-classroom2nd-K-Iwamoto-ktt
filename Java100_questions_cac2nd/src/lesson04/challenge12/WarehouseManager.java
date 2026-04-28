@@ -65,6 +65,7 @@ public class WarehouseManager {
 		int insertNum = 0;
 		int insertIndex = 0;
 		boolean loopFlag;
+
 		do {
 			loopFlag = false;
 			insertNum = (int) (Math.random() * 10) % 5 + 1;
@@ -99,9 +100,32 @@ public class WarehouseManager {
 
 		System.out.println("\n\nでした。直してきます...\n");
 
+		int zeroIndex = 0;
 
-		//ここに適切な値の挿入処理を記述する
+		for (int i = 0; i < wonderfulArray.length; i++) {
+			if (wonderfulArray[i] == 0) {
+				zeroIndex = i;
+				break;
+			}
+		}
 
+		do {
+			loopFlag = false;
+			insertNum = (int) (Math.random() * 10) % 5 + 1;
+			wonderfulArray[zeroIndex] = insertNum;
+
+			for (int i = 0; i < wonderfulArray.length - 1; i++) {
+				for (int j = i + 1; j < wonderfulArray.length; j++) {
+					if (wonderfulArray[i] == wonderfulArray[j]) {
+						loopFlag = true;
+						break;
+					}
+					if (loopFlag) {
+						break;
+					}
+				}
+			}
+		} while (loopFlag);
 
 		System.out.println("Yさん：");
 		System.out.println("直してきました。\n");

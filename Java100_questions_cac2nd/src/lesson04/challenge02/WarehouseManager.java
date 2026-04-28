@@ -95,21 +95,19 @@ public class WarehouseManager {
 
 		System.out.print("データ型を選んでください（1...文字、2...文字列、3...数値）＞");
 
-
-		//ここに入力処理を記述する。
-
+		String data_kind_str = br.readLine();
+		int data_kind = Integer.parseInt(data_kind_str);
 
 		System.out.print("\n要素数を選んでください（1...1個、2...2個、3...3個）＞");
 
-
-		//ここに入力処理を記述する。
-
+		String data_num_str = br.readLine();
+		int data_num = Integer.parseInt(data_num_str);
 
 		boolean errFlag = false;
 
-
-		//ここに入力値の範囲チェック処理を記述する。
-
+		if (((3 < data_kind) || (data_kind < 1)) || ((3 < data_num) || (data_num < 0))) {
+			errFlag = true;
+		}
 
 		if (!errFlag) {
 			System.out.println("\nZ先輩：");
@@ -126,10 +124,55 @@ public class WarehouseManager {
 			String[] strArray = null;
 			int[] intArray = null;
 
-
-			//ここに入力値による分岐および配列要素数の確定、
-			//値の代入処理を記述する。
-
+			if (data_kind == 1) {
+				charArray = new char[data_num];
+				switch (data_num) {
+				case 1:
+					charArray[0] = 'a';
+					break;
+				case 2:
+					charArray[0] = 'a';
+					charArray[1] = 'b';
+					break;
+				case 3:
+					charArray[0] = 'a';
+					charArray[1] = 'b';
+					charArray[2] = 'c';
+					break;
+				}
+			} else if (data_kind == 2) {
+				strArray = new String[data_num];
+				switch (data_num) {
+				case 1:
+					strArray[0] = "abc";
+					break;
+				case 2:
+					strArray[0] = "abc";
+					strArray[1] = "def";
+					break;
+				case 3:
+					strArray[0] = "abc";
+					strArray[1] = "def";
+					strArray[2] = "ghi";
+					break;
+				}
+			} else {
+				intArray = new int[data_num];
+				switch (data_num) {
+				case 1:
+					intArray[0] = 1;
+					break;
+				case 2:
+					intArray[0] = 1;
+					intArray[1] = 2;
+					break;
+				case 3:
+					intArray[0] = 1;
+					intArray[1] = 2;
+					intArray[2] = 3;
+					break;
+				}
+			}
 
 			System.out.println("Yさん：");
 			System.out.println("...出来ました。\n");
@@ -139,9 +182,13 @@ public class WarehouseManager {
 
 			System.out.println("Yさん：");
 
-
-			//ここに入力値による分岐および配列要素の表示処理を記述する。
-
+			if (data_kind == 1) {
+				System.out.print(charArray[data_num - 1]);
+			} else if (data_kind == 2) {
+				System.out.print(strArray[data_num - 1]);
+			} else {
+				System.out.println(intArray[data_num - 1]);
+			}
 
 			System.out.println("です。\n");
 

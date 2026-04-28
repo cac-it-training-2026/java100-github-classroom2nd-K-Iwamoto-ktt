@@ -18,28 +18,75 @@
 
 package lesson07.challenge12;
 
+interface IChiefTreasurer {
+	abstract void figure();
+}
 
-//ここにIChiefTreasurerインターフェースを記述
+abstract class Samurai {
 
+	protected String name;
 
-//ここにSamuraiクラスを記述
+	void fight() {
+		System.out.println("戦うよ～。");
+	}
 
+	abstract void work();
+}
 
-//ここにRetainerクラスを記述
+class Retainer extends Samurai {
 
+	protected String domain;
 
-//ここにMagistrateクラスを記述
+	public Retainer() {
 
+	}
+
+	public Retainer(String name, String domain) {
+		this.name = name;
+		this.domain = domain;
+	}
+
+	void getPaid() {
+		System.out.println("給料をもらうよ～。");
+	}
+
+	void work() {
+		System.out.println("年貢を取り立てるよ～。");
+	}
+
+	public String toString() {
+		return "拙者は" + this.domain + "藩士、" + this.name + "ともうす。";
+	}
+
+	public boolean equals(Retainer retainer) {
+		if (this.domain.equals(retainer.domain)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+}
+
+class Magistrate extends Retainer implements IChiefTreasurer {
+
+	void judge() {
+		System.out.println("判決を下すよ～。");
+	}
+
+	public void figure() {
+		System.out.println("藩の資産を計算するよ～。");
+	}
+}
 
 public class CastleTown {
 
-    public static void main(String[] args) {
-        System.out.println("奉行に勘定奉行を兼ねてもらうことになりました。\n");
+	public static void main(String[] args) {
+		System.out.println("奉行に勘定奉行を兼ねてもらうことになりました。\n");
 
-        System.out.println("奉行1：");
+		System.out.println("奉行1：");
 
+		Magistrate magistrate1 = new Magistrate();
+		magistrate1.figure();
 
-        //ここに適切な処理を記述
-
-    }
+	}
 }
